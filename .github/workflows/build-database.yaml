@@ -1,0 +1,33 @@
+name: Build database
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-database:
+    runs-on: ubuntu-latest
+    container:
+      image: martynas/archlinux:latest
+      options: --user root
+    steps:
+      - name: Import GPG key for signing database
+        uses: crazy-max/ghaction-import-gpg@v4.3.0
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Make database script executable
+        run: chmod +x build-db.sh
+
+      - name: Run database build script
+        run:  ./build-db.sh
+
+      - name: Add & Commit new files
+        uses: EndBug/add-and-commit@v9.0.0
+        with:
+          default_author: github_actions
+          message: 'Update database'
