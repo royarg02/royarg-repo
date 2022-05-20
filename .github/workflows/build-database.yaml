@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'os/x86_64/**'
 
 jobs:
   build-database:
