@@ -27,6 +27,9 @@ jobs:
 
       - name: Run database build script
         run:  ./build-db.sh
+        
+      - name: Add workspace to ownership exception
+        run: git config --global --add safe.directory /__w/royarg-repo/royarg-repo
 
       - name: Add & Commit new files
         uses: EndBug/add-and-commit@v9.1.1
