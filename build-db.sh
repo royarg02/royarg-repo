@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 # Database build script for royarg-repo
 # - Change directory to location of package files
@@ -19,7 +19,9 @@ cd os/x86_64
 ## -s: signs the packages
 ## -n: only add new packages not already in database
 ## -R: remove old package files when updating their entry
-repo-add -s -n -R royarg-repo.db.tar.gz *.pkg.tar.zst
+repo-add -s -n -R royarg-repo.db.tar.gz << EOF
+ls *.pkg.tar.zst | sort -nr
+EOF
 
 cat << END
 ╔════════════════════════════════════════════════════════════════════════════╗
