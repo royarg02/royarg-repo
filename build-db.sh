@@ -4,6 +4,7 @@
 # - Change directory to location of package files
 # - Build database using repo-add
 
+# Immediately exit upon fail of any command
 set -e
 
 cat << END
@@ -16,12 +17,9 @@ END
 cd os/x86_64
 
 ## repo-add
-## -s: signs the packages
-## -n: only add new packages not already in database
-## -R: remove old package files when updating their entry
-repo-add -s -n -R royarg-repo.db.tar.gz << EOF
-ls *.pkg.tar.zst | sort -nr
-EOF
+## List the packages version sorted, keeping lower revision number before the
+## greater one
+repo-add --sign --new --remove royarg-repo.db.tar.gz $(ls --sort=version ./*.pkg.tar.zst)
 
 cat << END
 ╔════════════════════════════════════════════════════════════════════════════╗
