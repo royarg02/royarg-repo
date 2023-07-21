@@ -1,10 +1,13 @@
 # royarg-repo
 
-A custom/unofficial Arch repository hosting packages built from custom `PKGBUILDS`.
+An unofficial Arch repository hosting packages that I use daily.
 
 ## Instructions to use
 
-1. Since the hosted packages are signed, `pacman` will require the PGP key of the packager. Get mine [here](https://royarg02.github.io/assets/anurag.aexpk).
+> [!IMPORTANT]\
+> The signing key of this repository has been recently changed. **Existing users** must follow the steps below again.
+
+1. Since the hosted packages are signed, `pacman` will require the PGP key of the packager. Get it [here](https://royarg02.github.io/royarg-repo/key.txt).
 
 2. Add the downloaded key to pacman's list of trusted keys:
 
@@ -12,16 +15,16 @@ A custom/unofficial Arch repository hosting packages built from custom `PKGBUILD
     # pacman-key --add /path/to/downloaded/keyfile
     ```
 
-3. Ensure that the key is genuine by comparing its fingerprint with **`F304 C077 661C EE88 30C5  FDC1 D794 9DA4 D7EB D6CF`**:
+3. Ensure that the key is genuine by comparing its fingerprint with **7B1F 570C 7895 E15E 73D1  3591 23D2 9A86 BCFC C858`**:
 
     ```shellscript
-    $ pacman-key --finger D7EBD6CF
+    $ pacman-key --finger BCFCC858
     ```
 
 4. Locally sign the imported key:
 
     ```shellscript
-    # pacman-key --lsign-key D7EBD6CF
+    # pacman-key --lsign-key BCFCC858
     ```
 
 5. Add the following lines at the end of `pacman.conf` to include this repository:
