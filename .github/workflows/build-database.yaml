@@ -10,29 +10,26 @@ jobs:
   build-database:
     runs-on: ubuntu-latest
     container:
-      image: martynas/archlinux:latest
-      options: --user root
+      image: archlinux/archlinux:base-devel
     steps:
+      - name: Update container image
+        run: pacman -Syu --noconfirm
+      - name: Install git
+        run: pacman -S --needed --noconfirm git
+      - name: Checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
       - name: Import GPG key for signing database
-        uses: crazy-max/ghaction-import-gpg@v5.2.0
+        uses: crazy-max/ghaction-import-gpg@72b6676b71ab476b77e676928516f6982eef7a41
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Make database script executable
-        run: chmod +x build-db.sh
-
-      - name: Run database build script
-        run:  ./build-db.sh
-        
       - name: Add workspace to ownership exception
         run: git config --global --add safe.directory /__w/royarg-repo/royarg-repo
-
+      - name: Run database build script
+        run:  ./build-db.sh
       - name: Add & Commit new files
-        uses: EndBug/add-and-commit@v9.1.1
+        uses: EndBug/add-and-commit@1bad3abcf0d6ec49a5857d124b0bfb52dc7bb081
         with:
           default_author: github_actions
           message: 'Update database'
+
