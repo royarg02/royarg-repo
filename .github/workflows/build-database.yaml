@@ -17,7 +17,7 @@ jobs:
       - name: Install git
         run: pacman -S --needed --noconfirm git
       - name: Checkout
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
       - name: Import GPG key for signing database
         uses: crazy-max/ghaction-import-gpg@72b6676b71ab476b77e676928516f6982eef7a41
         with:
