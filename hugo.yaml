@@ -20,7 +20,7 @@ menu:
       url: 'https://github.com/royarg02/royarg-repo-pkgbuilds'
       weight: 2
     - name: 'Repository sign key'
-      url: 'key.txt'
+      url: '/key.txt'
       weight: 3
     - name: 'Homepage'
       url: 'https://royarg02.github.io/'
