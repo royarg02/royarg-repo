@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      - 'os/x86_64/**'
+      - 'static/os/**'
 
 jobs:
   build-database:

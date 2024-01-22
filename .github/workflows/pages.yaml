@@ -1,5 +1,16 @@
 name: Deploy to GitHub Pages
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'assets/**'
+      - 'content/**'
+      - 'layouts/**'
+      - 'static/*'
+      - 'themes/**'
+      - 'hugo.yaml'
+      - 'README.md'
   workflow_run:
     workflows: ['Build database']
     types:
@@ -18,19 +29,34 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') }}
+    env:
+      HUGO_VERSION: 0.121.2
     steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-      - name: Setup Pages
-        uses: actions/configure-pages@1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@e4ef22193c23ea849fc3fea6dbce69da1ee65b6d
         with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
+          submodules: recursive
+          fetch-depth: 0
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d
+      - name: Restore mtime
+        run: ./restore-mtime.sh
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Upload pages artifact
         uses: actions/upload-pages-artifact@0252fc4ba7626f0298f0cf00902a25c6afc77fa8
+        with:
+          path: ./public
 
   deploy:
     environment:
