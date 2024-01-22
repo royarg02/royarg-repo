@@ -1,0 +1,31 @@
+.list {
+  font-family: monospace;
+  overflow: scroll;
+}
+
+.list table {
+  width: 100%;
+}
+
+.list tr {
+  display: flex;
+}
+
+.list-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  width: 6rem;
+  white-space: nowrap;
+}
+
+.list-item-mtime {
+  width: calc(var(--measure) / 5);
+  flex-shrink: 0;
+}
+
+.list-item-size {
+  width: calc(var(--measure) / 12);
+  flex-shrink: 0;
+  text-align: right;
+}

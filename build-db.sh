@@ -13,7 +13,7 @@ cat << END
 END
 
 # Arch: x86_64
-cd os/x86_64
+cd static/os/x86_64
 
 # repo-add
 # List the packages version sorted, keeping lower revision number before the

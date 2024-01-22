@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{ if not .IsHome }}<h2>{{ .Title }}</h2>{{ end }}
+  {{ .Content }}
+  <hr>
+  {{- $path := strings.Substr .Permalink (len site.BaseURL) -}}
+  <div class="list">
+    <table>
+      <tbody>
+        {{ range readDir (printf "static/%s" $path) }}
+        {{- $url := printf "%s%s" (absURL $path) .Name -}}
+          <tr>
+            <td class="list-item-name"><a href="{{ $url }}">{{ .Name }}{{ if .IsDir }}/{{ end }}</a></td>
+            <td class="list-item-mtime">{{ .ModTime | dateFormat "02-Jan-2006 15:04:05" }}</td>
+            <td class="list-item-size">{{ if .IsDir }}-{{ else }}{{ .Size }}{{ end }}</td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+{{ end }}

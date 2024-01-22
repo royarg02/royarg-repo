@@ -1,0 +1,45 @@
+baseURL: 'https://royarg02.github.io/royarg-repo'
+languageCode: 'en-us'
+title: 'royarg-repo'
+copyright: 'Copyright &copy; Anurag Roy 2024.'
+theme: rugo
+
+disableKinds:
+  - RSS
+  - sitemap
+  - robotsTXT
+  - term
+  - taxonomy
+
+menu:
+  main:
+    - name: 'News'
+      url: 'https://royarg02.github.io/categories/royarg-repo'
+      weight: 1
+    - name: 'Package source files'
+      url: 'https://github.com/royarg02/royarg-repo-pkgbuilds'
+      weight: 2
+    - name: 'Repository sign key'
+      url: 'key.txt'
+      weight: 3
+    - name: 'Homepage'
+      url: 'https://royarg02.github.io/'
+      weight: 4
+
+module:
+  mounts:
+    - source: 'content'
+      target: 'content'
+    - source: 'README.md'
+      target: 'content/_index.md'
+
+params:
+  datesInPageList: false
+
+  websiteCredits:
+    - name: 'Hugo'
+      url: 'https://gohugo.io/'
+    - name: 'GitHub Pages'
+      url: 'https://pages.github.com/'
+
+  oss:
