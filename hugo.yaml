@@ -14,7 +14,7 @@ disableKinds:
 menu:
   main:
     - name: 'News'
-      url: 'https://royarg02.github.io/categories/royarg-repo'
+      url: 'https://royarg02.github.io/tags/royarg-repo'
       weight: 1
     - name: 'Package source files'
       url: 'https://github.com/royarg02/royarg-repo-pkgbuilds'

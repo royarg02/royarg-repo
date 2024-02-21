@@ -45,4 +45,4 @@ the packager. [Get it here][1].
    # pacman -Syyu
    ```
 
-[1]: {{< baseurl >}}key.txt
+[1]: https://royarg02.github.io/royarg-repo/key.txt
