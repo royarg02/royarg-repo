@@ -6,6 +6,9 @@
   <div class="list">
     <table>
       <tbody>
+        <tr>
+          {{ with .Parent }}<td class="list-item-name"><a href="{{ .Permalink }}">../</a></td>{{ end }}
+        </tr>
         {{ range readDir (printf "static/%s" $path) }}
         {{- $url := printf "%s%s" (absURL $path) .Name -}}
           <tr>
