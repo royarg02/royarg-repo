@@ -27,6 +27,8 @@ jobs:
         run: git config --global --add safe.directory /__w/royarg-repo/royarg-repo
       - name: Run database build script
         run:  ./build-db.sh
+      - name: Run overview generation script
+        run:  ./generate-overview.sh
       - name: Add & Commit new files
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5
         with:
