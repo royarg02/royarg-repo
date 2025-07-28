@@ -1,4 +1,4 @@
-dmenu-extras          1.0.r5.262e78e-2    Helper dmenu scripts for basic tasks
+dmenu-extras          1.0.r5.262e78e-3    Helper dmenu scripts for basic tasks
 dmenu-royarg-git      5.3.r4.803e2a0-1    A modified version of the dynamic menu for X, originally designed for dwm.
 dwm-royarg-git        6.5.r6.d117a6e-1    A modified version of the dynamic window manager for X.
 dwmblocks-royarg-git  1.0.r98.dc7426b-1   A modified version of the modular status bar for dwm written in C.
