@@ -3,5 +3,5 @@ dmenu-royarg-git      5.4.r1.c5cac37-1    A modified version of the dynamic menu
 dwm-royarg-git        6.6.r3.f417055-1    A modified version of the dynamic window manager for X.
 dwmblocks-royarg-git  1.0.r101.4c8dbdb-2  A modified version of the modular status bar for dwm written in C.
 slock-royarg-git      1.6.r1.744946d-1    A modified version of the simple X display locker.
-st-royarg-git         0.9.3.r0.cd908b0-1  A modified version of the simple virtual terminal emulator for X.
+st-royarg-git         0.9.3.r1.69ff7c1-1  A modified version of the simple virtual terminal emulator for X.
 xivr                  1.2.0-1             Wrapper for *sxiv with nice features
