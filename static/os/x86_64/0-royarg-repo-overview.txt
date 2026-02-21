@@ -1,6 +1,6 @@
 dmenu-extras          1.0.r5.262e78e-3    Helper dmenu scripts for basic tasks
 dmenu-royarg-git      5.4.r3.911396b-1    A modified version of the dynamic menu for X, originally designed for dwm.
-dwm-royarg-git        6.8.r1.316cf5d-1    A modified version of the dynamic window manager for X.
+dwm-royarg-git        6.8.r3.86278ed-1    A modified version of the dynamic window manager for X.
 dwmblocks-royarg-git  1.0.r101.4c8dbdb-2  A modified version of the modular status bar for dwm written in C.
 slock-royarg-git      1.6.r1.744946d-1    A modified version of the simple X display locker.
 st-royarg-git         0.9.3.r2.fc36985-1  A modified version of the simple virtual terminal emulator for X.
