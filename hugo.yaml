@@ -1,5 +1,5 @@
 baseURL: 'https://royarg02.github.io/royarg-repo'
-languageCode: 'en-us'
+locale: 'en-us'
 title: 'royarg-repo'
 copyright: 'Copyright &copy; Anurag Roy 2024, 2025.'
 theme: rugo
