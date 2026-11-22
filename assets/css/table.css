@@ -1,6 +1,6 @@
 .list {
   font-family: monospace;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .list table {
